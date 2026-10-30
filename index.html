@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0b4f8a" />
+  <title>SolarCast — Generation Forecast</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <a class="brand" href="#" aria-label="SolarCast home">
+        <span class="brand-mark"><svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="7" fill="currentColor"/><g stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M20 3v5M20 32v5M3 20h5M32 20h5M8 8l4 4M28 28l4 4M32 8l-4 4M12 28l-4 4"/></g></svg></span>
+        <span><strong>SolarCast</strong><small>ENERGY INTELLIGENCE</small></span>
+      </a>
+      <div class="workspace-label">WORKSPACE</div>
+      <nav class="nav-list" aria-label="Main navigation">
+        <a class="nav-item active" href="#overview"><span class="nav-icon">▦</span> Overview</a>
+        <a class="nav-item" href="#forecast"><span class="nav-icon">⌁</span> Generation forecast <span class="nav-pill">AI</span></a>
+        <a class="nav-item" href="#weather"><span class="nav-icon">☼</span> Weather insights</a>
+        <a class="nav-item" href="#history"><span class="nav-icon">◷</span> Performance history</a>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="help-card">
+          <div class="help-icon">✦</div>
+          <strong>Smarter energy starts here.</strong>
+          <p>Forecast output, plan usage, and make every sunny hour count.</p>
+          <a href="#how-it-works">How it works <span>↗</span></a>
+        </div>
+        <button class="profile-button" id="profileButton">
+          <span class="avatar">BG</span><span class="profile-copy"><strong>Blake G.</strong><small>System administrator</small></span><span class="chevron">⌄</span>
+        </button>
+      </div>
+    </aside>
+
+    <main class="main-content" id="overview">
+      <header class="topbar">
+        <button class="mobile-menu" id="mobileMenu" aria-label="Toggle navigation">☰</button>
+        <div class="breadcrumb">Workspace <span>/</span> <strong>Overview</strong></div>
+        <div class="topbar-actions">
+          <span class="live-indicator"><i></i> Demo environment</span>
+          <button class="icon-button" id="notificationButton" aria-label="Notifications">♧<b></b></button>
+          <div class="top-avatar">BG</div>
+        </div>
+      </header>
+
+      <section class="page-heading">
+        <div>
+          <div class="eyebrow"><span class="eyebrow-line"></span> SOLAR PERFORMANCE CENTER</div>
+          <h1>Good afternoon, Blake<span class="sun-emoji"> ☀</span></h1>
+          <p class="subheading">Here's your solar outlook. A little sunshine, a lot of insight.</p>
+        </div>
+        <div class="heading-date"><span class="date-icon">▦</span><span><small>FORECAST DATE</small><strong id="todayDate">Sunday, 11 October 2026</strong></span><span class="date-caret">⌄</span></div>
+      </section>
+
+      <section class="site-strip">
+        <div class="site-info">
+          <div class="site-symbol">⌂</div>
+          <div><small>ACTIVE SOLAR SITE</small><strong>Vasai Rooftop Array <span class="verified">✓</span></strong><span class="site-meta">Vasai, Maharashtra, India <i>•</i> 12.5 kWp system</span></div>
+        </div>
+        <div class="site-controls">
+          <label for="siteSelect">SITE</label>
+          <select id="siteSelect" aria-label="Select solar site"><option value="vasai">Vasai Rooftop Array</option><option value="campus">Campus Solar Lab</option><option value="industrial">Industrial Roof Unit</option></select>
+          <button class="secondary-button" id="refreshButton"><span class="refresh-icon">↻</span> Refresh data</button>
+        </div>
+      </section>
+
+      <section class="section-heading" id="forecast">
+        <div><h2>Today's generation outlook</h2><p>AI-powered estimates based on weather and system capacity.</p></div>
+        <div class="forecast-chip"><span>✦</span> MODEL PREVIEW <span class="chip-dot"></span></div>
+      </section>
+
+      <section class="metrics-grid">
+        <article class="metric-card primary-metric">
+          <div class="metric-top"><span class="metric-label">PREDICTED GENERATION</span><span class="metric-icon sun-icon">☀</span></div>
+          <div class="metric-value"><span id="predictedValue">48.6</span><small>kWh</small></div>
+          <div class="metric-note"><span class="trend up">↗ 8.4%</span> <span>vs. yesterday</span></div>
+          <div class="mini-chart" aria-hidden="true"><svg viewBox="0 0 300 52" preserveAspectRatio="none"><path d="M0 43 C20 41 22 32 42 36 S67 27 83 32 S106 14 125 24 S145 28 164 17 S191 25 207 12 S237 19 252 7 S280 12 300 2 L300 52 L0 52Z" fill="rgba(255,255,255,.15)"/><path d="M0 43 C20 41 22 32 42 36 S67 27 83 32 S106 14 125 24 S145 28 164 17 S191 25 207 12 S237 19 252 7 S280 12 300 2" fill="none" stroke="rgba(255,255,255,.8)" stroke-width="2"/></svg></div>
+          <div class="metric-footer"><span>Expected today</span><span>▲ High confidence</span></div>
+        </article>
+        <article class="metric-card">
+          <div class="metric-top"><span class="metric-label">PEAK POWER</span><span class="metric-icon blue-icon">ϟ</span></div>
+          <div class="metric-value"><span id="peakValue">8.2</span><small>kW</small></div>
+          <div class="metric-note"><span class="neutral-tag">EXPECTED AT 12:30 PM</span></div>
+          <div class="metric-divider"></div>
+          <div class="metric-footer"><span>System capacity</span><strong>12.5 kWp</strong></div>
+        </article>
+        <article class="metric-card">
+          <div class="metric-top"><span class="metric-label">SUNLIGHT HOURS</span><span class="metric-icon amber-icon">◷</span></div>
+          <div class="metric-value"><span id="sunHours">7.4</span><small>hrs</small></div>
+          <div class="metric-note"><span class="trend up">+0.6 hrs</span> <span>above monthly avg.</span></div>
+          <div class="metric-divider"></div>
+          <div class="metric-footer"><span>Sunrise</span><strong>6:28 AM</strong></div>
+        </article>
+        <article class="metric-card">
+          <div class="metric-top"><span class="metric-label">PREDICTION ACCURACY</span><span class="metric-icon green-icon">◎</span></div>
+          <div class="metric-value"><span id="accuracyValue">92.4</span><small>%</small></div>
+          <div class="accuracy-track"><span style="width:92.4%"></span></div>
+          <div class="metric-note accuracy-caption">Last 30-day model accuracy</div>
+          <div class="metric-footer"><span>Model status</span><strong class="status-ready"><i></i> Ready</strong></div>
+        </article>
+      </section>
+
+      <section class="content-grid">
+        <article class="panel generation-panel">
+          <div class="panel-heading">
+            <div><h3>Generation forecast</h3><p>Expected solar output throughout the day</p></div>
+            <div class="chart-legend"><span><i class="legend-actual"></i> Predicted output</span><span><i class="legend-band"></i> Confidence range</span></div>
+          </div>
+          <div class="chart-summary"><strong>48.6 <small>kWh</small></strong><span class="chart-summary-label">Estimated daily yield</span><span class="chart-change">↗ 8.4% vs yesterday</span></div>
+          <div class="chart-wrap"><canvas id="generationChart" aria-label="Hourly solar generation forecast chart" role="img"></canvas></div>
+          <div class="chart-axis-footer"><span>12 AM</span><span>6 AM</span><span>12 PM</span><span>6 PM</span><span>11 PM</span></div>
+          <div class="chart-footnote"><span class="footnote-icon">ⓘ</span> Forecast is illustrative demo data, not a live prediction.</div>
+        </article>
+
+        <article class="panel weather-panel" id="weather">
+          <div class="panel-heading"><div><h3>Weather insights</h3><p>Conditions affecting today's output</p></div><button class="more-button" id="weatherDetailsButton" aria-label="More weather details">•••</button></div>
+          <div class="weather-main"><div><div class="weather-temp">31°<small>C</small></div><div class="weather-condition">Partly cloudy</div><div class="weather-location">Vasai, Maharashtra</div></div><div class="weather-art" aria-hidden="true"><div class="sun-disc"></div><div class="cloud cloud-back"></div><div class="cloud cloud-front"></div></div></div>
+          <div class="weather-stats">
+            <div><span class="weather-stat-icon">☼</span><span><small>UV INDEX</small><strong>High · 7</strong></span></div>
+            <div><span class="weather-stat-icon">♧</span><span><small>HUMIDITY</small><strong>68%</strong></span></div>
+            <div><span class="weather-stat-icon">≋</span><span><small>WIND SPEED</small><strong>12 km/h</strong></span></div>
+            <div><span class="weather-stat-icon">☁</span><span><small>CLOUD COVER</small><strong>28%</strong></span></div>
+          </div>
+          <div class="weather-impact"><span class="impact-check">✓</span><span><strong>Favourable conditions</strong><small>Good solar potential through midday.</small></span><span class="impact-score">+8%</span></div>
+        </article>
+      </section>
+
+      <section class="bottom-grid">
+        <article class="panel hourly-panel">
+          <div class="panel-heading"><div><h3>Hourly breakdown</h3><p>Estimated energy generated per hour</p></div><span class="unit-label">kWh</span></div>
+          <div class="hourly-list" id="hourlyList"></div>
+          <button class="text-button" id="showHourlyButton">View full hourly forecast <span>→</span></button>
+        </article>
+        <article class="panel recommendation-panel" id="how-it-works">
+          <div class="panel-heading"><div><h3>AI recommendations</h3><p>Make the most of today's sunlight</p></div><span class="sparkle">✦</span></div>
+          <div class="recommendation">
+            <div class="recommendation-icon">⌁</div><div><strong>Shift high-load usage to midday</strong><p>Peak generation is expected between 11 AM and 2 PM. Run energy-intensive appliances during this window.</p><span class="recommendation-tag">ENERGY OPTIMISATION</span></div>
+          </div>
+          <div class="recommendation">
+            <div class="recommendation-icon amber-rec">☼</div><div><strong>Keep panels clear of shade</strong><p>Cloud cover may fluctuate in the afternoon. Check for new obstructions around the array.</p><span class="recommendation-tag amber-rec-tag">MAINTENANCE TIP</span></div>
+          </div>
+        </article>
+      </section>
+
+      <footer class="footer"><span>SolarCast <span class="footer-dot">•</span> Solar intelligence, made clearer.</span><span><span class="footer-status"></span> Prototype v1.0 <span class="footer-dot">•</span> Demo data</span></footer>
+    </main>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"><span>✓</span><div><strong id="toastTitle">Data refreshed</strong><small id="toastMessage">Forecast values have been updated.</small></div></div>
+
+  <div class="modal-backdrop" id="modalBackdrop" aria-hidden="true">
+    <section class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button class="modal-close" id="modalClose" aria-label="Close dialog">×</button>
+      <div class="modal-kicker">SOLARCAST INSIGHTS</div><h2 id="modalTitle">Forecast details</h2><p id="modalDescription">A closer look at the current prediction.</p>
+      <div class="modal-detail-grid" id="modalDetails"></div>
+      <div class="modal-note"><span>ⓘ</span> This is a front-end prototype. Weather and prediction values are sample data and are not connected to a live API or ML model.</div>
+      <button class="primary-button" id="modalDone">Got it</button>
+    </section>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
